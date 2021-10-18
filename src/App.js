@@ -1,4 +1,5 @@
-import { DrinksProvider } from './context/DrinksProvider';
+import React from 'react';
+import DrinksProvider from './context/DrinksProvider';
 import Home from './pages/Home';
 import './App.css';
 
