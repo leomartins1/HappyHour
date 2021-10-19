@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react';
 import DrinksContext from '../context/DrinksContext';
+import { fetchDrinksByFirstLetter, fetchDrinksByIngredient, fetchDrinksByName } from '../services/fetchCocktails';
+
+const THE_LAST_ONE = 25;
 
 export default function SearchInput() {
   const { contextValue } = useContext(DrinksContext);
@@ -20,12 +23,37 @@ export default function SearchInput() {
     });
   }
 
+  async function handleClick() {
+    switch (filters.query) {
+      case 'ingredient': {
+        const drinks = await fetchDrinksByIngredient(filters.input)
+        const first24 = drinks.slice(0, THE_LAST_ONE)
+        setDrinks(first24);
+        break;
+      }
+      case 'name': {
+        const drinks = await fetchDrinksByName(filters.input)
+        const first24 = drinks.slice(0, THE_LAST_ONE)
+        setDrinks(first24);
+        break;
+      }
+      case 'first-letter': {
+        const drinks = await fetchDrinksByFirstLetter(filters.input)
+        const first24 = drinks.slice(0, THE_LAST_ONE)
+        setDrinks(first24);
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
   return (
     <>
     <input type="text" data-testid="name-filter" onChange={ handleFilter } />
     <form onChange={ handleChange }>
         <label htmlFor="ingredient">
-          Ingredient
+          Ingrediente
           <input
             type="radio"
             data-testid="ingredient-search-radio"
@@ -34,7 +62,7 @@ export default function SearchInput() {
           />
         </label>
         <label htmlFor="name">
-          Name
+          Nome
           <input
             type="radio"
             data-testid="name-search-radio"
@@ -43,7 +71,7 @@ export default function SearchInput() {
           />
         </label>
         <label htmlFor="first-letter">
-          First Letter
+          Primeira Letra
           <input
             type="radio"
             data-testid="first-letter-search-radio"
@@ -52,6 +80,13 @@ export default function SearchInput() {
           />
         </label>
         </form>
+        <button
+          type="button"
+          data-testid="exec-search-btn"
+          onClick={ handleClick }
+        >
+            Pesquisar
+        </button>
     </>
   );
 }
