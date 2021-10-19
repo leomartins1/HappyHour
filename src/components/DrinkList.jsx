@@ -6,21 +6,21 @@ import DrinksContext from '../context/DrinksContext';
 export default function DrinkList() {
   const { contextValue } = useContext(DrinksContext);
   const { Drinks } = contextValue;
-
+  
   const handleDrinks = useCallback(() => {
     if (Drinks === undefined || Drinks === null) return 
     return (
       <div className="home">
-      {Drinks.map((drink, index) => (
-        <div className="drink-card" key={ index }>
+      {
+      Drinks.map((drink, index) => (
+        <Link to={`${drink.idDrink}`} className="drink-card" key={ index }>
+          <p>{drink.strDrink}</p>
           <img
             className="img-card"
             src={drink.strDrinkThumb}
             alt={drink.strDrink}
           />
-          <p>{drink.strDrink}</p>
-          <Link to={`${drink.idDrink}`}>Detalhes</Link>
-        </div>
+        </Link>
       ))}
     </div>
     )
