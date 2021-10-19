@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { fetchDrinksDetails } from '../services/fetchCocktails'
 
 
@@ -49,7 +50,7 @@ export default function Details() {
     const { strDrinkThumb, strCategory,
       strDrink, strInstructions, strAlcoholic } = state.details;
     return (
-      <div>
+      <div className="details">
         <img
           className="img-details"
           data-testid="recipe-photo"
@@ -61,6 +62,7 @@ export default function Details() {
         <p data-testid="recipe-category">{`Category: ${strCategory}`}</p>
         { handleIngredients() }
         <p data-testid="instructions">{`Instructions: ${strInstructions}`}</p>
+        <Link className="back-btn" to='/'>Voltar para o Pub</Link>
       </div>
     );
   }
