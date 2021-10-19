@@ -1,38 +1,119 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./img/bar-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: white;
+  list-style: none;
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.drink-card {
+  display: flex;
+  color: whitesmoke;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+  height: 230px;
+  width: 140px;
+  margin: 20px 30px;
+  padding: 10px;
   text-align: center;
+  background-image: url('./img/card-bg.jpg');
+  background-size: auto;
+  background-position: center center;
+  border-radius: 4px;
+  justify-content: space-between;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.img-card {
+  width: 95%;
+  border-radius: 50%;
+  height: fit-content;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search {
+  background-image: url('./img/search.jpg');
+  width: fit-content;
+  margin-top: 15px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search .btn-src {
+  margin: 5px;
+  width: 30px;
+}
+
+.search .input {
+  border-radius: 10px;
+  margin: 5px
+}
+
+.details {
+  background-image: url('./img/details.jpg');
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.details .img-details {
+  padding-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 300px;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.details .back-btn {
+  background-image: url('./img/search.jpg');
+  text-decoration: none;
+  color: whitesmoke;
+  width: fit-content;
+  align-self: center;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 4px;
+}
+
+@media screen and (max-width: 500px) {
+  .search {
+    display: flex;
+    width: fit-content;
+    flex-wrap: wrap;
+    padding: 5px;
+    border-radius: 0px;
+    margin-top: 0px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search .title {
+    margin: 0;
+  }
+
+  .search .btn-src {
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 90vw;
+  }
+
+  .drink-card {
+    margin: 20px 15px;
   }
 }
