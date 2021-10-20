@@ -51,9 +51,9 @@ export default function SearchInput() {
 
   return (
     <div className="search">
-      <p className="title">Happy Hour</p>
+      <p>Happy Hour</p>
       <input className="input" type="text" data-testid="name-filter" onChange={ handleFilter } />
-      <form onChange={ handleChange } className="radios">
+      <form onChange={ handleChange }>
         <label htmlFor="ingredient">
           <input
             type="radio"
