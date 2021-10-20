@@ -9,7 +9,7 @@ Happy Hour é um App feito com React consumindo uma API de [drinks](https://www.
 
 ## Iniciando o projeto localmente
 
-Depois de clonar o repositorio localmente, instale as dependencias
+Depois de clonar o repositorio localmente, instale as dependências.
 
 ```bash
 npm install
@@ -17,7 +17,7 @@ npm install
 
 ### `npm start`
 
-Após instalar as dependencias, só precisamos abri-lo localmente 😃
+Após instalar as dependências, só precisamos abri-lo localmente .😃
 
 ```bash
 npm start
