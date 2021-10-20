@@ -4,10 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import DrinksProvider from './context/DrinksProvider';
 
-const basename = document.querySelector('base')?.getAttribute('href') ?? '/'    
-
 ReactDOM.render(
-  <BrowserRouter basename={ basename }>
+  <BrowserRouter>
     <DrinksProvider>
       <App />
     </DrinksProvider>
