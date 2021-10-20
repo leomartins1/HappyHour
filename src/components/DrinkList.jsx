@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { useCallback } from 'react/cjs/react.development';
 import DrinksContext from '../context/DrinksContext';
 
 export default function DrinkList() {
@@ -13,7 +12,7 @@ export default function DrinkList() {
       <div className="home">
       {
       Drinks.map((drink, index) => (
-        <Link to={`${drink.idDrink}`} className="drink-card" key={ index }>
+        <Link to={`/drink/${drink.idDrink}`} className="drink-card" key={ index }>
           <p>{drink.strDrink}</p>
           <img
             className="img-card"
